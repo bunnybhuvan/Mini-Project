@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumetrix - AI Resume Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                950: '#050B15', // Base background: Near-black navy
+                900: '#0a1628',
+              },
+              electric: {
+                500: '#3478ff', // Primary glow
+                400: '#4f9dff', // Accent glow
+              },
+              glass: {
+                surface: 'rgba(255, 255, 255, 0.12)',
+                border: 'rgba(255, 255, 255, 0.25)',
+                highlight: 'rgba(255, 255, 255, 0.4)',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Poppins', 'sans-serif'],
+              roboto: ['Roboto', 'sans-serif'],
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'marquee-scroll': 'marquee-scroll 40s linear infinite',
+              'blob-spin': 'blob-spin 40s linear infinite',
+              'pulse-glow': 'pulse-glow 8s ease-in-out infinite',
+              'float': 'float 20s ease-in-out infinite',
+            },
+            keyframes: {
+              'marquee-scroll': {
+                'from': { transform: 'translateX(0)' },
+                'to': { transform: 'translateX(-50%)' },
+              },
+              'blob-spin': {
+                '0%': { transform: 'rotate(0deg) scale(1)' },
+                '33%': { transform: 'rotate(120deg) scale(1.1)' },
+                '66%': { transform: 'rotate(240deg) scale(0.9)' },
+                '100%': { transform: 'rotate(360deg) scale(1)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+                '50%': { opacity: '0.5', transform: 'scale(1.05)' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            },
+            backgroundImage: {
+              'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E\")",
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      @keyframes settingsFadeIn {
+        from { opacity: 0; transform: translateX(10px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-settings-fade-in {
+        animation: settingsFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Base background ensures no flash of unstyled content */
+      body {
+        background-color: #F9FAFB; /* Light mode base */
+      }
+      html.dark body {
+        background-color: #050B15; /* Dark mode base */
+      }
+    </style>
+    <script>
+      // Apply theme from localStorage or default to dark
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      const font = localStorage.getItem('fontTheme');
+      if (font) document.documentElement.classList.add(`font-${font}`);
+      const color = localStorage.getItem('colorTheme');
+      if (color) document.documentElement.classList.add(`theme-${color}`);
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.544.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
+  }
+}
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+      if (typeof pdfjsLib !== 'undefined') {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+      }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-50 dark:bg-navy-950 text-gray-800 dark:text-gray-200 transition-colors duration-500 font-sans selection:bg-blue-200 dark:selection:bg-electric-500/30 selection:text-blue-900 dark:selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

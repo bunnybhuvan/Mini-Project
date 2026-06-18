@@ -1,0 +1,8 @@
+{
+  "name": "RESUMETRIX",
+  "description": "",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
