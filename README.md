@@ -12,6 +12,8 @@
 This contains everything you need to run your app locally.
 
 [View your app in AI Studio: https://ai.studio/apps/drive/1wCsQPnDJVP3Y6yOc1uu6pGcIBRiHYnkh](https://ai.studio/apps/drive/1wCsQPnDJVP3Y6yOc1uu6pGcIBRiHYnkh?fullscreenApplet=true)
+<img width="1895" height="1021" alt="Screenshot 2026-07-09 200249" src="https://github.com/user-attachments/assets/b4f25d6e-0992-4489-b0e9-1942891bc6dd" />
+
 ---
 
 ## 📌 Project Overview
