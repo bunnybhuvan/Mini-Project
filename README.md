@@ -29,6 +29,7 @@ The platform combines modern web technologies with Artificial Intelligence to pr
 * Resume Builder
 * Job Application Tracking
 * AI Career Assistant (Rexa)
+<img width="1492" height="975" alt="Screenshot 2026-07-09 200326" src="https://github.com/user-attachments/assets/a98fbbd0-3035-443f-87eb-c4f6e4be8414" />
 
 ---
 
@@ -39,36 +40,42 @@ The platform combines modern web technologies with Artificial Intelligence to pr
 * Upload and analyze resumes instantly.
 * Receive ATS compatibility scores.
 * Identify weaknesses and improvement areas.
+<img width="757" height="767" alt="Screenshot 2026-07-09 200538" src="https://github.com/user-attachments/assets/9ac9733c-8089-4b7a-a1d2-471ab10b64a5" />
 
 ### 🎯 Job Description Matching
 
 * Compare resumes against job descriptions.
 * Detect missing skills and keywords.
 * Improve job-specific resume alignment.
+<img width="771" height="710" alt="Screenshot 2026-07-09 200527" src="https://github.com/user-attachments/assets/f1ab046c-055b-49b0-aa62-9df43d83c688" />
 
 ### 🤖 Rexa AI Career Assistant
 
 * AI-powered career guidance assistant.
 * Resume improvement suggestions.
 * Personalized career advice.
+<img width="402" height="632" alt="Screenshot 2026-07-09 201952" src="https://github.com/user-attachments/assets/c599c18a-a128-4339-b654-1f2336612281" />
 
 ### 🎤 Interview Preparation
 
 * AI-generated interview questions.
 * Technical and HR interview preparation.
 * Project-based interview guidance.
+<img width="1613" height="861" alt="Screenshot 2026-07-09 200712" src="https://github.com/user-attachments/assets/480170fc-3d31-4ad2-9326-7aabc3fcfa44" />
 
 ### 📝 Resume Builder
 
 * Create professional resumes.
 * ATS-friendly formatting.
 * Easy customization.
+<img width="1726" height="913" alt="Screenshot 2026-07-09 201704" src="https://github.com/user-attachments/assets/573bfa15-d5ad-4414-b857-257d5c322ab6" />
 
 ### 💼 Job Application Tracker
 
 * Track job applications.
 * Manage application status.
 * Monitor interview progress.
+<img width="1534" height="420" alt="Screenshot 2026-07-09 201723" src="https://github.com/user-attachments/assets/6c7f6b53-1d1d-40a9-91ea-9f33feedc701" />
 
 ### 🌗 Modern UI Experience
 
